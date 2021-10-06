@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DigitalTwinApplication {
 
 	public static void main(String[] args) {
+
+
 		SpringApplication.run(DigitalTwinApplication.class, args);
 	}
 
