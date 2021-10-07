@@ -24,7 +24,7 @@ public class MachineController {
     @PostMapping
     public ResponseEntity<Machine> createMachine(@RequestBody Machine machine){
         try {
-            return new ResponseEntity<Machine>(machineService.createMachine(machine),HttpStatus.CREATED);
+            return new ResponseEntity<>(machineService.createMachine(machine),HttpStatus.CREATED);
         }catch (BadRequestException e){
             return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
         }catch (Exception e){
@@ -34,7 +34,12 @@ public class MachineController {
 
     @GetMapping
     public ResponseEntity<List<Machine>> getAllMachines(){
-        return  new ResponseEntity<List<Machine>>(machineService.getAllMachines(),HttpStatus.OK);
+        return  new ResponseEntity<>(machineService.getAllMachines(),HttpStatus.OK);
+    }
+
+    @GetMapping("{id")
+    public ResponseEntity<Machine> getMachine(@PathVariable String id){
+        return  new ResponseEntity<>(machineService.getMachine(id),HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
